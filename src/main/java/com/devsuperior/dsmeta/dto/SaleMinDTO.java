@@ -31,7 +31,7 @@ public class SaleMinDTO {
 		id = entity.getId();
 		amount = entity.getAmount();
 		date = entity.getDate();
-		this.sellerName = entity.getSeller().getName(); // Supondo que Sale tenha um relacionamento com Seller
+		sellerName = entity.getSeller().getName();
 	}
 
 	// Getters

@@ -18,23 +18,23 @@ public class SaleController {
 
 	@Autowired
 	private SaleService service;
-	
-	@GetMapping(value = "/{id}")
-	public ResponseEntity<SaleMinDTO> findById(@PathVariable Long id) {
-		SaleMinDTO dto = service.findById(id);
-		return ResponseEntity.ok(dto);
-	}
 
 	@GetMapping(value = "/report")
 	public ResponseEntity<Page<SaleMinDTO>> getReport(
-			@RequestParam(name = "initialDate", defaultValue = "") LocalDate initialDate,
-			@RequestParam(name = "finalDate", defaultValue = "") LocalDate finalDate,
+			@RequestParam(name = "initialDate", defaultValue = "") String initialDate,
+			@RequestParam(name = "finalDate", defaultValue = "") String finalDate,
 			@RequestParam(name = "name", defaultValue = "") String name,
 			Pageable pageable) {
 		Page<SaleMinDTO> dto=service.getReport(initialDate, finalDate, name, pageable);
 		return ResponseEntity.ok(dto);
 	}
 
+
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<SaleMinDTO> findById(@PathVariable Long id) {
+		SaleMinDTO dto = service.findById(id);
+		return ResponseEntity.ok(dto);
+	}
 
 
 	@GetMapping(value = "/summary")
