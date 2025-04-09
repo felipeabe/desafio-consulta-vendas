@@ -28,7 +28,7 @@ public interface SaleRepository extends JpaRepository<Sale, Long> {
     Page<SaleProjection> searchSale(LocalDate minDate, LocalDate maxDate, String name, Pageable pageable);
 
     @Query(nativeQuery = true,
-        value="select tb_seller.name, sum(tb_sales.amount) "+
+        value="select tb_seller.name, sum(tb_sales.amount) as amount "+
                 "from tb_sales inner join tb_seller on tb_sales.seller_id=tb_seller.id " +
                 "where tb_sales.date between :minDate and :maxDate "+
                 "group by tb_seller.name "
