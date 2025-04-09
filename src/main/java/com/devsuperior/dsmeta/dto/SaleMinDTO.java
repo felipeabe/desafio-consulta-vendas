@@ -23,7 +23,7 @@ public class SaleMinDTO {
 		id= projection.getId();
 		amount= projection.getAmount();
 		date=projection.getDate();
-		sellerName= projection.getSellerName();
+		sellerName= projection.getName();
 	}
 
 

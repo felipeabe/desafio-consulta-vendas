@@ -9,6 +9,6 @@ public interface SaleProjection {
     Long getId();
     LocalDate getDate();
     Double getAmount();
-    String getSellerName();
+    String getName();
 }
 
